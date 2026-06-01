@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export function GET(request: Request) {
   let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'quinn&#39s site'
+  let title = url.searchParams.get('title') || "quinn's site"
 
   return new ImageResponse(
     (
