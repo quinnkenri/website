@@ -16,12 +16,13 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
-  frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(': ')
-    let value = valueArr.join(': ').trim()
-    value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
-  })
+frontMatterLines.forEach((line) => {
+  if (!line.trim()) return  // Skip empty lines
+  let [key, ...valueArr] = line.split(': ')
+  let value = valueArr.join(': ').trim()
+  value = value.replace(/^['"](.*)['"]$/, '$1')
+  metadata[key.trim() as keyof Metadata] = value
+})
 
   return { metadata: metadata as Metadata, content }
 }
