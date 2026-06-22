@@ -59,8 +59,9 @@ export default function Blog({ params }) {
   }
 
   return (
-    <section>
-      <script
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
+        <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -86,13 +87,14 @@ export default function Blog({ params }) {
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="text-sm text-muted-foreground">
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
       <article className="prose">
         <CustomMDX source={post.content} />
       </article>
-    </section>
+      </div>
+    </div>
   )
 }

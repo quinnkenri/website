@@ -1,25 +1,24 @@
 import './global.css'
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
+import { SiteHeader } from './components/site-header'
+import { SiteFooter } from './components/site-footer'
+import { ThemeScript } from './components/theme-script'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "quinn's site",
-    template: " | quinn's site",
+    default: 'Your Site',
+    template: '%s | Your Site',
   },
-  description: "this is quinn's site",
+  description: 'Personal portfolio and project showcase.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Your Site',
+    description: 'Personal portfolio and project showcase.',
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Your Site',
     locale: 'en_US',
     type: 'website',
   },
@@ -36,30 +35,22 @@ export const metadata: Metadata = {
   },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
-      )}
-    >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body className="antialiased">
+        <SiteHeader />
+        <main>{children}</main>
+        <SiteFooter />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
