@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from 'app/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from 'app/components/ui/avatar'
 import { ProjectList, type Project } from 'app/components/project-list'
 import { SkillIcons } from 'app/components/skill-icons'
 import { CurrentlyWorking } from 'app/components/currently-working'
@@ -13,6 +13,12 @@ export default function Page() {
           <Avatar
             className="h-32 w-32 shrink-0 border border-border bg-muted md:h-48 md:w-48"
           >
+            <Avatar
+  className="h-32 w-32 shrink-0 border border-border bg-muted md:h-48 md:w-48"
+>
+  <AvatarImage src="/headshot.jpg" alt="Your Name" />
+  <AvatarFallback className="text-lg font-medium">YN</AvatarFallback>
+</Avatar>
             <AvatarFallback className="text-lg font-medium">YN</AvatarFallback>
           </Avatar>
           <div className="min-w-0 text-center md:text-left">
