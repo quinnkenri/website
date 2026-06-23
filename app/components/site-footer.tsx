@@ -11,7 +11,7 @@ export function SiteFooter() {
           Portfolio shell — add your content when ready.
         </span>
         <span className="order-3 text-center md:justify-self-end md:text-right">
-          &copy; {new Date().getFullYear()} Your Name
+          &copy; {new Date().getFullYear()} Quinn Lawson
         </span>
       </div>
     </footer>
