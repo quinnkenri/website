@@ -17,23 +17,23 @@ export default function Page() {
           </Avatar>
           <div className="min-w-0 text-center md:text-left">
             <h1 className="text-3xl font-semibold tracking-tight">
-              Your Name
+              Quinn Lawson
             </h1>
             <p className="mt-2 text-muted-foreground">
-              Your tagline or role goes here.
+              3rd year Mechanical Engineering student at the University of Saskatchewan
               <br />
               <br />
-              Add a short line about what you work on or care about.
+              Hello!
             </p>
             <nav className="mt-5 flex flex-wrap justify-center gap-3 text-base md:justify-start">
               <a
-                href="mailto:you@example.com"
+                href="quinn.lawson@usask.ca"
                 className="rounded border border-border px-3 py-1.5 text-primary hover:border-primary hover:no-underline"
               >
                 Email
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/quinnkenri"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded border border-border px-3 py-1.5 text-primary hover:border-primary hover:no-underline"
@@ -41,7 +41,7 @@ export default function Page() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/quinn-lawson-123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded border border-border px-3 py-1.5 text-primary hover:border-primary hover:no-underline"
@@ -63,8 +63,7 @@ export default function Page() {
             About
           </h2>
           <p className="leading-relaxed">
-            Write a short introduction about yourself here. Describe your
-            background, interests, and what you&apos;re building or learning.
+            I am a third-year engineering student. 
           </p>
         </section>
 
