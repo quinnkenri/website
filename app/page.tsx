@@ -27,7 +27,7 @@ export default function Page() {
             </p>
             <nav className="mt-5 flex flex-wrap justify-center gap-3 text-base md:justify-start">
               <a
-                href="quinn.lawson@usask.ca"
+                href="mailto:quinn.lawson@usask.ca"
                 className="rounded border border-border px-3 py-1.5 text-primary hover:border-primary hover:no-underline"
               >
                 Email
@@ -41,7 +41,7 @@ export default function Page() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/quinn-lawson-123"
+                href="https://linkedin.com/in/quinn-lawson123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded border border-border px-3 py-1.5 text-primary hover:border-primary hover:no-underline"
