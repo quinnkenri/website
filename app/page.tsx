@@ -10,9 +10,6 @@ export default function Page() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
         <header className="mb-16 flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-between">
-          <Avatar
-            className="h-32 w-32 shrink-0 border border-border bg-muted md:h-48 md:w-48"
-          >
 <Avatar
   className="h-32 w-32 shrink-0 rounded-lg border border-border bg-muted md:h-48 md:w-48"
 >
