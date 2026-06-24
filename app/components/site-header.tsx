@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation'
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/blog', label: 'Projects' },
+  { path: '/projects', label: 'Projects' },
+  { path: '/about', label: 'About' },
 ]
 
 export function SiteHeader() {
