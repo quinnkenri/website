@@ -1,22 +1,50 @@
-import { ImageResponse } from 'next/og'
+'use client'
 
-export function GET(request: Request) {
-  let url = new URL(request.url)
-  let title = url.searchParams.get('title') || "quinn's site"
+import { useEffect, useState } from 'react'
 
-  return new ImageResponse(
-    (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-white">
-        <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-          <h2 tw="flex flex-col text-4xl font-bold tracking-tight text-left">
-            {title}
-          </h2>
-        </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
+type NowPlaying = {
+  isPlaying: boolean
+  title?: string
+  artist?: string
+  albumArt?: string
+  songUrl?: string
+}
+
+export function SpotifyNowPlaying() {
+  const [data, setData] = useState<NowPlaying | null>(null)
+
+  useEffect(() => {
+    const load = () =>
+      fetch('/api/spotify-now-playing')
+        .then((res) => res.json())
+        .then(setData)
+        .catch(() => setData({ isPlaying: false }))
+
+    load()
+    const interval = setInterval(load, 30000)
+    return () => clearInterval(interval)
+  }, [])
+
+  if (!data?.isPlaying) {
+    return (
+      <span className="text-xs text-muted-foreground">Not currently playing anything</span>
+    )
+  }
+
+  return (
+    
+      href={data.songUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-2 py-1 hover:border-primary"
+    >
+      {data.albumArt && (
+        <img src={data.albumArt} alt={data.title} className="h-8 w-8 rounded" />
+      )}
+      <span className="min-w-0 text-left">
+        <span className="block truncate text-xs font-medium text-foreground">{data.title}</span>
+        <span className="block truncate text-xs text-muted-foreground">{data.artist}</span>
+      </span>
+    </a>
   )
 }
