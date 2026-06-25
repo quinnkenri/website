@@ -32,7 +32,7 @@ export function SpotifyNowPlaying() {
   }
 
   return (
-    
+    <a
       href={data.songUrl}
       target="_blank"
       rel="noopener noreferrer"
