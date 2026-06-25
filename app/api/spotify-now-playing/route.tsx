@@ -42,20 +42,21 @@ export async function GET() {
   }
 
   // Nothing currently playing — fall back to the last played track
-  const recentRes = await fetch(
+const recentRes = await fetch(
     'https://api.spotify.com/v1/me/player/recently-played?limit=1',
     { headers: { Authorization: `Bearer ${accessToken}` } }
   )
 
   if (!recentRes.ok) {
-    return Response.json({ isPlaying: false })
+    const errorBody = await recentRes.text()
+    return Response.json({ isPlaying: false, debugStatus: recentRes.status, debugError: errorBody })
   }
 
   const recent = await recentRes.json()
   const last = recent?.items?.[0]
 
   if (!last) {
-    return Response.json({ isPlaying: false })
+    return Response.json({ isPlaying: false, debugStatus: recentRes.status, debugItems: recent?.items?.length ?? 0 })
   }
 
   return Response.json({
