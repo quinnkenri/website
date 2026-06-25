@@ -1,22 +1,42 @@
-import { ImageResponse } from 'next/og'
+export const dynamic = 'force-dynamic'
 
-export function GET(request: Request) {
-  let url = new URL(request.url)
-  let title = url.searchParams.get('title') || "quinn's site"
+export async function GET() {
+  const basic = Buffer.from(
+    `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+  ).toString('base64')
 
-  return new ImageResponse(
-    (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-white">
-        <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-          <h2 tw="flex flex-col text-4xl font-bold tracking-tight text-left">
-            {title}
-          </h2>
-        </div>
-      </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
+  const tokenRes = await fetch('https://accounts.spotify.com/api/token', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${basic}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'refresh_token',
+      refresh_token: process.env.SPOTIFY_REFRESH_TOKEN!,
+    }),
+  })
+  const { access_token } = await tokenRes.json()
+
+  const nowPlayingRes = await fetch(
+    'https://api.spotify.com/v1/me/player/currently-playing',
+    { headers: { Authorization: `Bearer ${access_token}` } }
   )
+
+  if (nowPlayingRes.status === 204 || !nowPlayingRes.ok) {
+    return Response.json({ isPlaying: false })
+  }
+
+  const song = await nowPlayingRes.json()
+  if (!song?.item) {
+    return Response.json({ isPlaying: false })
+  }
+
+  return Response.json({
+    isPlaying: song.is_playing,
+    title: song.item.name,
+    artist: song.item.artists.map((a: { name: string }) => a.name).join(', '),
+    albumArt: song.item.album.images[0]?.url,
+    songUrl: song.item.external_urls.spotify,
+  })
 }
