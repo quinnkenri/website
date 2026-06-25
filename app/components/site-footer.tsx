@@ -1,6 +1,12 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './theme-toggle'
+import { SpotifyNowPlaying } from './spotify-now-playing'
 
 export function SiteFooter() {
+  const pathname = usePathname()
+
   return (
     <footer className="mt-12 border-t border-border">
       <div className="mx-auto grid max-w-4xl grid-cols-1 items-center justify-items-center gap-4 px-6 py-6 text-sm text-muted-foreground md:grid-cols-[1fr_auto_1fr] md:px-8">
@@ -8,7 +14,7 @@ export function SiteFooter() {
           <ThemeToggle />
         </div>
         <span className="order-1 text-center md:order-2">
-          Portfolio shell — add your content when ready.
+          {pathname === '/about' && <SpotifyNowPlaying />}
         </span>
         <span className="order-3 text-center md:justify-self-end md:text-right">
           &copy; {new Date().getFullYear()} Quinn Lawson
