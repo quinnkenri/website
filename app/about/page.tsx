@@ -49,22 +49,22 @@ export default function AboutPage() {
     onClick={() => setSelected(null)}
   >
     <div
-      className="relative max-w-lg rounded-lg bg-background p-4 shadow-xl"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button
-        onClick={() => setSelected(null)}
-        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
-      >
-        ✕
-      </button>
-      <img
-        src={selected.image}
-        alt={selected.caption}
-        className="rounded-lg w-full"
-      />
-      <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
-    </div>
+  className="relative max-w-4xl rounded-lg bg-background p-4 shadow-xl"
+  onClick={(e) => e.stopPropagation()}
+>
+  <button
+    onClick={() => setSelected(null)}
+    className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+  >
+    ✕
+  </button>
+  <img
+    src={selected.image}
+    alt={selected.caption}
+    className="rounded-lg w-full max-h-[90vh] object-contain"
+  />
+  <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
+</div>
   </div>
 )}
       </div>
