@@ -38,7 +38,7 @@ export function SiteHeader() {
             href="/"
             className="shrink-0 text-sm font-semibold tracking-tight"
           >
-            Your Site
+            Quinn's Site
           </Link>
           <nav className="flex shrink-0 gap-3 text-sm sm:gap-5">
             {navLinks.map((l) => {
