@@ -5,20 +5,14 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
-        <h1 className="mb-8 text-3xl font-semibold tracking-tight">About</h1>
+        <h1 className="mb-8 text-3xl font-semibold tracking-tight">About Me</h1>
 
         <section className="mb-16">
           <p className="leading-relaxed">
-            I am a third-year engineering student.
+            I am a third-year engineering student at the University of Saskatchewan in Saskatoon.
           </p>
         </section>
 
-        <section className="mb-16">
-          <h2 className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Currently
-          </h2>
-          <CurrentlyWorking blurb="Describe what you're focused on right now." />
-        </section>
 
 <h2 className="mb-6 mt-16 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
   Where I've Lived
