@@ -21,7 +21,7 @@ export default function AboutPage() {
 <h2 className="mb-6 mt-16 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
   Where I've Lived
 </h2>
-<div className="flex justify-center gap-4">
+<div className="h-12 cursor-default rounded shadow-sm transition-shadow duration-300 hover:shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]"
   {[
     { flag: '/flag1.png', alt: 'Winnipeg', image: '/photo1.jpg', caption: 'Your caption here' },
     { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/photo2.jpg', caption: 'Your caption here' },
