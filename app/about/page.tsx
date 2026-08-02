@@ -28,7 +28,7 @@ export default function AboutPage() {
     { src: '/flag4.png', alt: 'Saskatoon' },
   ].map(({ src, alt }) => (
     <div key={src} className="group relative">
-      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-1000 duration-200 group-hover:opacity-100">
+      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-400 duration-200 group-hover:opacity-100">
         {alt}
       </span>
       <img src={src} alt={alt} className="h-12 rounded shadow-sm" />
