@@ -23,7 +23,6 @@ export default function AboutPage() {
 <h2 className="mb-6 mt-16 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
   Where I've Lived
 </h2>
-<div className="flex justify-center gap-4">
         
 <div className="flex justify-center gap-4">
   {[
