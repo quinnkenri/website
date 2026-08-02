@@ -1,7 +1,11 @@
+'use client'
+
+import { useState } from 'react'
 import { SkillIcons } from 'app/components/skill-icons'
 import { CurrentlyWorking } from 'app/components/currently-working'
 
 export default function AboutPage() {
+  const [selected, setSelected] = useState<{ flag: string; alt: string; image: string; caption: string } | null>(null)
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
@@ -13,26 +17,56 @@ export default function AboutPage() {
           </p>
         </section>
 
-
+{/* Where I've Lived */}
 <h2 className="mb-6 mt-16 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
   Where I've Lived
 </h2>
-        
 <div className="flex justify-center gap-4">
   {[
-    { src: '/flag1.png', alt: 'Winnipeg' },
-    { src: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook' },
-    { src: '/flag3.png', alt: 'Moncton / Dieppe' },
-    { src: '/flag4.png', alt: 'Saskatoon' },
-  ].map(({ src, alt }) => (
-    <div key={src} className="group relative">
-      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-400 duration-200 group-hover:opacity-100">
-        {alt}
+    { flag: '/flag1.png', alt: 'Winnipeg', image: '/photo1.jpg', caption: 'Your caption here' },
+    { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/photo2.jpg', caption: 'Your caption here' },
+    { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/photo3.jpg', caption: 'Your caption here' },
+    { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
+  ].map((item) => (
+    <div key={item.flag} className="group relative">
+      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-1000 duration-200 group-hover:opacity-100">
+        {item.alt}
       </span>
-      <img src={src} alt={alt} className="h-12 rounded shadow-sm" />
+      <img
+        src={item.flag}
+        alt={item.alt}
+        onClick={() => setSelected(item)}
+        className="h-12 cursor-pointer rounded shadow-sm transition-shadow duration-300 hover:shadow-[0_0_10px_2px_rgba(255,255,255,0.4)]"
+      />
     </div>
   ))}
 </div>
+
+{/* Lightbox modal */}
+{selected && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+    onClick={() => setSelected(null)}
+  >
+    <div
+      className="relative max-w-lg rounded-lg bg-background p-4 shadow-xl"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button
+        onClick={() => setSelected(null)}
+        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+      >
+        ✕
+      </button>
+      <img
+        src={selected.image}
+        alt={selected.caption}
+        className="rounded-lg w-full"
+      />
+      <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
+    </div>
+  </div>
+)}
       </div>
     </div>
   )
