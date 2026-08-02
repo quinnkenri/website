@@ -20,7 +20,12 @@ export default function AboutPage() {
           <CurrentlyWorking blurb="Describe what you're focused on right now." />
         </section>
 
-<div className="mt-16 flex justify-center gap-4">
+<h2 className="mb-6 mt-16 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
+  Where I've Lived
+</h2>
+<div className="flex justify-center gap-4">
+        
+<div className="flex justify-center gap-4">
   {[
     { src: '/flag1.png', alt: 'Winnipeg' },
     { src: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook' },
