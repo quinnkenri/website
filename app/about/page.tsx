@@ -20,12 +20,17 @@ export default function AboutPage() {
           <CurrentlyWorking blurb="Describe what you're focused on right now." />
         </section>
 
-        <section>
-          <h2 className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
-            Skills
-          </h2>
-          <SkillIcons />
-        </section>
+<section>
+  <h2 className="mb-6 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+    Languages
+  </h2>
+  <div className="flex flex-wrap gap-4">
+    <img src="/flag1.jpg" alt="Winnipeg." className="h-12 rounded shadow-sm" />
+    <img src="/flag2.jpg" alt="Campbell River. Duncan. Cranbrook." className="h-12 rounded shadow-sm" />
+    <img src="/flag3.jpg" alt="Moncton. Dieppe." className="h-12 rounded shadow-sm" />
+    <img src="/flag4.jpg" alt="Saskatoon." className="h-12 rounded shadow-sm" />
+  </div>
+</section>
       </div>
     </div>
   )
