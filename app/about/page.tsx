@@ -23,8 +23,8 @@ export default function AboutPage() {
 </h2>
 <div className="flex justify-center gap-4">
   {[
-    { flag: '/flag1.png', alt: 'Winnipeg', image: '/winnipeg.jpg', caption: 'portage and main, 2020' },
-    { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/photo2.jpg', caption: 'Your caption here' },
+    { flag: '/flag1.png', alt: 'Winnipeg', image: '/DSC07900.JPG', caption: 'portage and main, 2020' },
+    { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/P1030678.JPG', caption: 'campbell river, 2011' },
     { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/photo3.jpg', caption: 'Your caption here' },
     { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
   ].map((item) => (
@@ -49,22 +49,22 @@ export default function AboutPage() {
     onClick={() => setSelected(null)}
   >
     <div
-      className="relative max-w-lg rounded-lg bg-background p-4 shadow-xl"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button
-        onClick={() => setSelected(null)}
-        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
-      >
-        ✕
-      </button>
-      <img
-        src={selected.image}
-        alt={selected.caption}
-        className="rounded-lg w-full"
-      />
-      <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
-    </div>
+  className="relative max-w-4xl rounded-lg bg-background p-4 shadow-xl"
+  onClick={(e) => e.stopPropagation()}
+>
+  <button
+    onClick={() => setSelected(null)}
+    className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+  >
+    ✕
+  </button>
+  <img
+    src={selected.image}
+    alt={selected.caption}
+    className="rounded-lg w-full max-h-[90vh] object-contain"
+  />
+  <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
+</div>
   </div>
 )}
       </div>
