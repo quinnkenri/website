@@ -21,10 +21,10 @@ export default function AboutPage() {
         </section>
 
 <div className="mt-16 flex justify-center gap-4">
-  <img src="/flag1.jpg" alt="Winnipeg" className="h-12 rounded shadow-sm" />
-  <img src="/flag2.jpg" alt="Campbell River / Duncan / Cranbrook" className="h-12 rounded shadow-sm" />
-  <img src="/flag3.jpg" alt="Moncton / Dieppe" className="h-12 rounded shadow-sm" />
-  <img src="/flag4.jpg" alt="Saskatoon" className="h-12 rounded shadow-sm" />
+  <img src="/flag1.png" alt="Winnipeg" className="h-12 rounded shadow-sm" />
+  <img src="/flag2.png" alt="Campbell River / Duncan / Cranbrook" className="h-12 rounded shadow-sm" />
+  <img src="/flag3.png" alt="Moncton / Dieppe" className="h-12 rounded shadow-sm" />
+  <img src="/flag4.png" alt="Saskatoon" className="h-12 rounded shadow-sm" />
 </div>
       </div>
     </div>
