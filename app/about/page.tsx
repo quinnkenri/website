@@ -29,7 +29,7 @@ export default function AboutPage() {
     { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
   ].map((item) => (
     <div key={item.flag} className="group relative">
-      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-1000 duration-200 group-hover:opacity-100">
+      <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-250 duration-200 group-hover:opacity-100">
         {item.alt}
       </span>
       <img
