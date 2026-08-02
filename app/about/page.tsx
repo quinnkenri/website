@@ -23,7 +23,7 @@ export default function AboutPage() {
 </h2>
 <div className="flex justify-center gap-4">
   {[
-    { flag: '/flag1.png', alt: 'Winnipeg', image: '/photo1.jpg', caption: 'Your caption here' },
+    { flag: '/flag1.png', alt: 'Winnipeg', image: '/winnipeg.jpg', caption: 'portage and main, 2020' },
     { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/photo2.jpg', caption: 'Your caption here' },
     { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/photo3.jpg', caption: 'Your caption here' },
     { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
