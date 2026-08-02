@@ -25,7 +25,7 @@ export default function AboutPage() {
   {[
     { flag: '/flag1.png', alt: 'Winnipeg', image: '/DSC07900.JPG', caption: 'portage and main, 2020' },
     { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/P1030678.JPG', caption: 'campbell river, 2011' },
-    { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/photo3.jpg', caption: 'Your caption here' },
+    { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/DSC06574.JPG', caption: 'waterside beach' },
     { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
   ].map((item) => (
     <div key={item.flag} className="group relative">
