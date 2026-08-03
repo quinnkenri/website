@@ -1,3 +1,5 @@
+'use client'
+
 import { ProjectList, type Project } from 'app/components/project-list'
 
 const projects: Project[] = []
