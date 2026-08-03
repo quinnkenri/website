@@ -58,9 +58,11 @@ const projects: Project[] = [
     tech: ['Fusion 360'],
     links: [{ label: 'This could be you with this putter', href: 'https://www.youtube.com/watch?v=u9KrMQDU94g' }],
     details: [
-      { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
+      { type: 'text', content: `Every year a new putter comes out where it looks like nothing changed (except the price, which goes up). For a high school project I decided to test out some more radical changes.
         
-        The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team also won the Spirit Bear Award for exemplifying the spirit of teamwork.` },
+        This triangular mallet putter primarily reflects high-school level CAD skills, but is actually surprisingly functional. I 3D-printed a prototype out of PLA with 100% infill, attached it to the shaft from a thrift store putter, and tested it on the course. I find the shape is actually quite helpful in alignment, at least as much as the usual stripe!
+        
+        If machined out of 6061 this would be a heavy putter, around 400-450 grams. The lie angle as tested was 78 degrees, but 70 degrees would likely work better. One day I will get it machined and test it for real...` },
     ],
   },
   // add more entries following the same shape
