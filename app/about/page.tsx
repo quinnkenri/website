@@ -1,11 +1,20 @@
 'use client'
 
 import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SkillIcons } from 'app/components/skill-icons'
 import { CurrentlyWorking } from 'app/components/currently-working'
 
 export default function AboutPage() {
   const [selected, setSelected] = useState<{ flag: string; alt: string; image: string; caption: string } | null>(null)
+  const images = ['/photo1.jpg', '/photo2.jpg', '/photo3.jpg', '/photo4.jpg']
+
+useEffect(() => {
+  images.forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
+}, [])
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
