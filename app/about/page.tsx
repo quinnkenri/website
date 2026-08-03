@@ -1,11 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SkillIcons } from 'app/components/skill-icons'
 import { CurrentlyWorking } from 'app/components/currently-working'
 
 export default function AboutPage() {
   const [selected, setSelected] = useState<{ flag: string; alt: string; image: string; caption: string } | null>(null)
+  const images = ['/photo1.jpg', '/photo2.jpg', '/photo3.jpg', '/photo4.jpg']
+
+useEffect(() => {
+  images.forEach((src) => {
+    const img = new Image()
+    img.src = src
+  })
+}, [])
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-4xl px-6 pt-20 pb-16 sm:px-8">
@@ -25,7 +33,7 @@ export default function AboutPage() {
   {[
     { flag: '/flag1.png', alt: 'Winnipeg', image: '/DSC07900.JPG', caption: 'portage and main, 2020' },
     { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/P1030678.JPG', caption: 'campbell river, 2011' },
-    { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/photo3.jpg', caption: 'Your caption here' },
+    { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/DSC06574.JPG', caption: 'waterside beach' },
     { flag: '/flag4.png', alt: 'Saskatoon', image: '/photo4.jpg', caption: 'Your caption here' },
   ].map((item) => (
     <div key={item.flag} className="group relative">
@@ -48,22 +56,22 @@ export default function AboutPage() {
     className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
     onClick={() => setSelected(null)}
   >
-    <div
-  className="relative max-w-4xl rounded-lg bg-background p-4 shadow-xl"
+<div
+  className="relative flex flex-col items-end max-w-4xl rounded-lg bg-background shadow-xl"
   onClick={(e) => e.stopPropagation()}
 >
   <button
     onClick={() => setSelected(null)}
-    className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+    className="px-3 py-2 text-muted-foreground hover:text-foreground"
   >
     ✕
   </button>
   <img
     src={selected.image}
     alt={selected.caption}
-    className="rounded-lg w-full max-h-[90vh] object-contain"
+    className="rounded-b-lg w-full max-h-[90vh] object-contain"
   />
-  <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
+  <p className="mt-3 mb-4 text-center w-full text-sm text-muted-foreground">{selected.caption}</p>
 </div>
   </div>
 )}
