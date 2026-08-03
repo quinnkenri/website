@@ -4,35 +4,16 @@ import { useEffect, useState } from 'react'
 
 export type DetailBlock =
   | { type: 'text'; content: string }
-  | {
-      type: 'image'
-      src: string
-      alt: string
-      width: number
-      height: number
-      caption?: string
-    }
-  | {
-      type: 'video'
-      src: string
-      alt: string
-      caption?: string
-      poster?: string
-    }
+  | { type: 'image'; src: string; alt: string; width: number; height: number; caption?: string }
+  | { type: 'video'; src: string; alt: string; caption?: string; poster?: string }
 
 export type Project = {
   title: string
+  image?: string
   description: string
   tech: string[]
   links?: { label: string; href: string }[]
   details?: DetailBlock[]
-}
-
-function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
 }
 
 function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
@@ -41,15 +22,11 @@ function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
       {blocks.map((b, i) => {
         if (b.type === 'text') {
           return (
-            <p
-              key={i}
-              className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line"
-            >
+            <p key={i} className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
               {b.content}
             </p>
           )
         }
-
         if (b.type === 'video') {
           return (
             <figure key={i} className="space-y-1">
@@ -63,14 +40,11 @@ function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
                 className="w-full rounded border border-border"
               />
               {b.caption && (
-                <figcaption className="text-center text-xs text-muted-foreground">
-                  {b.caption}
-                </figcaption>
+                <figcaption className="text-center text-xs text-muted-foreground">{b.caption}</figcaption>
               )}
             </figure>
           )
         }
-
         return (
           <figure key={i} className="space-y-1">
             <img
@@ -79,13 +53,10 @@ function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
               width={b.width}
               height={b.height}
               loading="lazy"
-              decoding="async"
               className="w-full rounded border border-border"
             />
             {b.caption && (
-              <figcaption className="text-center text-xs text-muted-foreground">
-                {b.caption}
-              </figcaption>
+              <figcaption className="text-center text-xs text-muted-foreground">{b.caption}</figcaption>
             )}
           </figure>
         )
@@ -94,90 +65,15 @@ function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
   )
 }
 
-function ProjectMeta({ p }: { p: Project }) {
-  return (
-    <>
-      <p className="text-sm leading-relaxed">{p.description}</p>
-      {p.details && p.details.length > 0 && (
-        <div className="mt-4">
-          <DetailBlocks blocks={p.details} />
-        </div>
-      )}
-      <p className="mt-4 text-xs text-muted-foreground">{p.tech.join(' · ')}</p>
-      {p.links && (
-        <div className="mt-3 flex gap-3 text-sm">
-          {p.links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </>
-  )
-}
-
 export function ProjectList({ projects }: { projects: Project[] }) {
-  const [panelIdx, setPanelIdx] = useState<number | null>(null)
+  const [active, setActive] = useState<Project | null>(null)
 
-  const active = panelIdx !== null ? projects[panelIdx] : null
-
+  // close on Escape key
   useEffect(() => {
-    const slugs = projects.map((p) => slugify(p.title))
-
-    const openMatching = () => {
-      const hash = decodeURIComponent(window.location.hash.replace(/^#/, ''))
-      if (!hash) return
-
-      const slugMatch = hash.split(':~:')[0]
-      let idx = slugs.indexOf(slugMatch)
-
-      if (idx === -1 && hash.includes(':~:text=')) {
-        const raw = hash.split(':~:text=')[1] ?? ''
-        const needle = decodeURIComponent(raw.split('&')[0].split(',')[0])
-          .toLowerCase()
-          .trim()
-        if (needle) {
-          idx = projects.findIndex((p) => {
-            const hay = [
-              p.title,
-              p.description,
-              ...(p.details ?? []).map((d) =>
-                d.type === 'text'
-                  ? d.content
-                  : d.type === 'image' || d.type === 'video'
-                    ? d.caption ?? ''
-                    : ''
-              ),
-            ]
-              .join(' ')
-              .toLowerCase()
-            return hay.includes(needle)
-          })
-        }
-      }
-
-      if (idx >= 0) {
-        const el = document.getElementById(slugs[idx])
-        if (el) {
-          requestAnimationFrame(() => {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          })
-        }
-        setPanelIdx(idx)
-      }
-    }
-
-    openMatching()
-    window.addEventListener('hashchange', openMatching)
-    return () => window.removeEventListener('hashchange', openMatching)
-  }, [projects])
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setActive(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   if (projects.length === 0) {
     return (
@@ -189,40 +85,84 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      <ul className="space-y-8">
-        {projects.map((p, i) => {
-          const slug = slugify(p.title)
-          const hasDetails = !!p.details && p.details.length > 0
-          return (
-            <li
-              key={p.title}
-              id={slug}
-              className="scroll-mt-20 border-l-2 border-border pl-4"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="min-w-0 flex-1 break-words font-medium">
-                  {p.title}
-                </h3>
-                {hasDetails && (
-                  <button
-                    type="button"
-                    onClick={() => setPanelIdx(i)}
-                    className="shrink-0 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:border-accent hover:text-accent"
-                  >
-                    Open
-                  </button>
-                )}
+      {/* 2-column card grid */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {projects.map((p) => (
+          <div
+            key={p.title}
+            className="flex flex-col overflow-hidden rounded-lg border border-border bg-card"
+          >
+            {/* Project image */}
+            {p.image && (
+              <div className="aspect-video w-full overflow-hidden bg-muted">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                {p.description}
-              </p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                {p.tech.join(' · ')}
-              </p>
-              {p.links && (
-                <div className="mt-2 flex gap-3 text-sm">
-                  {p.links.map((l) => (
-                    <a
+            )}
+
+            {/* Card body */}
+            <div className="flex flex-1 flex-col justify-between p-4">
+              <div>
+                <h3 className="font-medium">{p.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{p.description}</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setActive(p)}
+                className="mt-4 self-start rounded border border-border px-3 py-1 text-xs text-muted-foreground hover:border-primary hover:text-primary"
+              >
+                More details
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Modal overlay */}
+      {active && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          onClick={() => setActive(null)}
+        >
+          <div
+            className="relative flex flex-col w-full max-w-2xl max-h-[90vh] rounded-lg bg-background shadow-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal header */}
+            <div className="flex items-center justify-between border-b border-border px-6 py-4 shrink-0">
+              <h3 className="text-lg font-medium">{active.title}</h3>
+              <button
+                type="button"
+                onClick={() => setActive(null)}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal scrollable body */}
+            <div className="overflow-y-auto px-6 py-5 space-y-4">
+              {active.image && (
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="w-full rounded-lg object-cover max-h-64"
+                />
+              )}
+              <p className="text-sm leading-relaxed">{active.description}</p>
+              {active.details && active.details.length > 0 && (
+                <DetailBlocks blocks={active.details} />
+              )}
+              {active.tech.length > 0 && (
+                <p className="text-xs text-muted-foreground">{active.tech.join(' · ')}</p>
+              )}
+              {active.links && (
+                <div className="flex gap-3 text-sm">
+                  {active.links.map((l) => (
+                    
                       key={l.label}
                       href={l.href}
                       target="_blank"
@@ -234,43 +174,10 @@ export function ProjectList({ projects }: { projects: Project[] }) {
                   ))}
                 </div>
               )}
-            </li>
-          )
-        })}
-      </ul>
-
-      <div
-        className={`fixed inset-x-0 bottom-0 top-14 z-40 ${
-          active ? 'pointer-events-auto' : 'pointer-events-none'
-        }`}
-        aria-hidden={!active}
-      >
-        <div
-          onClick={() => setPanelIdx(null)}
-          className={`absolute inset-0 bg-background/60 transition-opacity duration-200 ${
-            active ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-        <aside
-          className={`absolute right-0 top-0 h-full w-full max-w-md overflow-y-auto border-l border-border bg-card p-6 shadow-xl transition-transform duration-200 ${
-            active ? 'translate-x-0' : 'translate-x-full'
-          }`}
-        >
-          <div className="mb-4 flex items-start justify-between gap-4">
-            <h3 className="min-w-0 flex-1 break-words text-lg font-medium">
-              {active?.title}
-            </h3>
-            <button
-              type="button"
-              onClick={() => setPanelIdx(null)}
-              className="rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:border-accent hover:text-accent"
-            >
-              Close
-            </button>
+            </div>
           </div>
-          {active && <ProjectMeta p={active} />}
-        </aside>
-      </div>
+        </div>
+      )}
     </>
   )
 }
