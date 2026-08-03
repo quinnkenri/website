@@ -56,22 +56,22 @@ useEffect(() => {
     className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
     onClick={() => setSelected(null)}
   >
-    <div
-  className="relative max-w-4xl rounded-lg bg-background p-4 shadow-xl"
+<div
+  className="relative flex flex-col items-end max-w-4xl rounded-lg bg-background shadow-xl"
   onClick={(e) => e.stopPropagation()}
 >
   <button
     onClick={() => setSelected(null)}
-    className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+    className="px-3 py-2 text-muted-foreground hover:text-foreground"
   >
     ✕
   </button>
   <img
     src={selected.image}
     alt={selected.caption}
-    className="rounded-lg w-full max-h-[90vh] object-contain"
+    className="rounded-b-lg w-full max-h-[90vh] object-contain"
   />
-  <p className="mt-3 text-center text-sm text-muted-foreground">{selected.caption}</p>
+  <p className="mt-3 mb-4 text-center w-full text-sm text-muted-foreground">{selected.caption}</p>
 </div>
   </div>
 )}
