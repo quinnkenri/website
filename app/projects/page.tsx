@@ -4,13 +4,14 @@ import { ProjectList, type Project } from 'app/components/project-list'
 
 const projects: Project[] = [
   {
-    title: 'Project Name',
+    title: 'Project Up',
     image: '/project1.jpg',  
-    description: 'Short description shown in the modal.',
-    tech: ['CAD', 'Python'],
-    links: [{ label: 'GitHub', href: 'https://github.com/...' }],
+    description: 'Supersonic competition rocket for Launch Canada 2025',
+    tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
+    links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
     details: [
-      { type: 'text', content: 'Longer writeup goes here.' },
+      { type: 'text', content: 'Contributed to the USST's 2025 competition rocket UP as a member of the aerostructure team. Helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
+        The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team won the Spirit Bear Award for exemplifying the spirit of teamwork.' },
     ],
   },
   // add more entries following the same shape
