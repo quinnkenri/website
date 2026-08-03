@@ -12,8 +12,9 @@ export default function Page() {
           <div className="min-w-0 text-center md:text-left">
             <h1 className="text-3xl font-semibold tracking-tight">Quinn Lawson</h1>
             <p className="mt-2 text-muted-foreground">
-              Hello! I am a 3rd year Mechanical Engineering student at the University of Saskatchewan.
+              Hello!
             <br>
+               I am a 3rd year Mechanical Engineering student at the University of Saskatchewan.
             </br>
             </p>
             <nav className="mt-5 flex flex-wrap justify-center gap-3 text-base md:justify-start">
