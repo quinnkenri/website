@@ -2,7 +2,19 @@
 
 import { ProjectList, type Project } from 'app/components/project-list'
 
-const projects: Project[] = []
+const projects: Project[] = [
+  {
+    title: 'Project Name',
+    image: '/project1.jpg',  
+    description: 'Short description shown in the modal.',
+    tech: ['CAD', 'Python'],
+    links: [{ label: 'GitHub', href: 'https://github.com/...' }],
+    details: [
+      { type: 'text', content: 'Longer writeup goes here.' },
+    ],
+  },
+  // add more entries following the same shape
+]
 
 export default function ProjectsPage() {
   return (
