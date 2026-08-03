@@ -4,10 +4,10 @@ import { ProjectList, type Project } from 'app/components/project-list'
 
 const projects: Project[] = [
   {
-    title: 'Project Up',
+    title: 'Theseus',
     image: '/project1.jpg',  
-    description: 'Supersonic competition rocket for Launch Canada 2025',
-    tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
+    description: 'Supersonic competition rocket for Launch Canada 2026',
+    tech: ['Inventor', 'OpenRocket', 'Python', 'Documentation and Reporting'],
     links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
     details: [
       { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
@@ -16,10 +16,10 @@ const projects: Project[] = [
     ],
   },
     {
-    title: 'Project Up',
+    title: 'Wind-Powered Sail Cart',
     image: '/project1.jpg',  
-    description: 'Supersonic competition rocket for Launch Canada 2025',
-    tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
+    description: 'ME-229 Engineering Design Project',
+    tech: ['Inventor', 'Documentation and Reporting'],
     links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
     details: [
       { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
@@ -28,9 +28,21 @@ const projects: Project[] = [
     ],
   },
     {
-    title: 'Project Up',
+    title: 'Up',
     image: '/project1.jpg',  
     description: 'Supersonic competition rocket for Launch Canada 2025',
+    tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
+    links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
+    details: [
+      { type: 'text', content: `Contributed to the USST's 2025 competition rocket Up. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
+        
+        The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team also won the Spirit Bear Award for exemplifying the spirit of teamwork.` },
+    ],
+  },
+    {
+    title: 'Omnidirectional RC Car',
+    image: '/project1.jpg',  
+    description: 'ENGR-102 Engineering Project',
     tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
     links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
     details: [
@@ -39,12 +51,12 @@ const projects: Project[] = [
         The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team also won the Spirit Bear Award for exemplifying the spirit of teamwork.` },
     ],
   },
-    {
-    title: 'Project Up',
+      {
+    title: 'Golf Putters',
     image: '/project1.jpg',  
-    description: 'Supersonic competition rocket for Launch Canada 2025',
-    tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
-    links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
+    description: 'Designing custom putter heads',
+    tech: ['Fusion 360'],
+    links: [{ label: 'This could be you with this putter', href: 'https://www.youtube.com/watch?v=u9KrMQDU94g' }],
     details: [
       { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
         
