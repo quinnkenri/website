@@ -34,7 +34,7 @@ useEffect(() => {
     { flag: '/flag1.png', alt: 'Winnipeg', image: '/DSC07900.JPG', caption: 'portage and main' },
     { flag: '/flag2.png', alt: 'Campbell River / Duncan / Cranbrook', image: '/P1030678.JPG', caption: 'campbell river, 2011' },
     { flag: '/flag3.png', alt: 'Moncton / Dieppe', image: '/DSC06574.JPG', caption: 'waterside beach' },
-    { flag: '/flag4.png', alt: 'Saskatoon', image: '/P101.JPG', caption: 'university bridge' },
+    { flag: '/flag4.png', alt: 'Saskatoon', image: '/P101.jpg', caption: 'university bridge' },
   ].map((item) => (
     <div key={item.flag} className="group relative">
       <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-foreground px-2 py-1 text-xs text-background opacity-0 transition-opacity delay-250 duration-200 group-hover:opacity-100">
