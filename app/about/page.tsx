@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { useState, useEffect } from 'react'
 import { SkillIcons } from 'app/components/skill-icons'
 import { CurrentlyWorking } from 'app/components/currently-working'
