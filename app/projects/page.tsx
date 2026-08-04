@@ -40,7 +40,7 @@ const projects: Project[] = [
     {
     title: 'Omnidirectional RC Car',
     image: '/car.jpg',  
-    description: 'ENGR-102 Engineering Project',
+    description: 'ENGR-102 Engineering Design Project',
     tech: ['Arduino', 'Android'],
     links: [{ label: 'Demonstration video', href: 'https://youtu.be/wNtzX0Gwb_g' }],
     details: [
