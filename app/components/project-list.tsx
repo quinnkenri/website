@@ -16,6 +16,14 @@ export type Project = {
   details?: DetailBlock[]
 }
 
+function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+      {children}
+    </a>
+  )
+}
+
 function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
   return (
     <div className="space-y-4">
@@ -68,7 +76,6 @@ function DetailBlocks({ blocks }: { blocks: DetailBlock[] }) {
 export function ProjectList({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState<Project | null>(null)
 
-  // close on Escape key
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setActive(null) }
     window.addEventListener('keydown', onKey)
@@ -85,25 +92,17 @@ export function ProjectList({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      {/* 2-column card grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {projects.map((p) => (
           <div
             key={p.title}
             className="flex flex-col overflow-hidden rounded-lg border border-border bg-card"
           >
-            {/* Project image */}
             {p.image && (
               <div className="aspect-video w-full overflow-hidden bg-muted">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-full w-full object-cover"
-                />
+                <img src={p.image} alt={p.title} className="h-full w-full object-cover" />
               </div>
             )}
-
-            {/* Card body */}
             <div className="flex flex-1 flex-col justify-between p-4">
               <div>
                 <h3 className="font-medium">{p.title}</h3>
@@ -121,7 +120,6 @@ export function ProjectList({ projects }: { projects: Project[] }) {
         ))}
       </div>
 
-      {/* Modal overlay */}
       {active && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
@@ -131,7 +129,6 @@ export function ProjectList({ projects }: { projects: Project[] }) {
             className="relative flex flex-col w-full max-w-2xl max-h-[90vh] rounded-lg bg-background shadow-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal header */}
             <div className="flex items-center justify-between border-b border-border px-6 py-4 shrink-0">
               <h3 className="text-lg font-medium">{active.title}</h3>
               <button
@@ -142,15 +139,9 @@ export function ProjectList({ projects }: { projects: Project[] }) {
                 ✕
               </button>
             </div>
-
-            {/* Modal scrollable body */}
             <div className="overflow-y-auto px-6 py-5 space-y-4">
               {active.image && (
-                <img
-                  src={active.image}
-                  alt={active.title}
-                  className="w-full rounded-lg object-cover max-h-64"
-                />
+                <img src={active.image} alt={active.title} className="w-full rounded-lg object-cover max-h-64" />
               )}
               <p className="text-sm leading-relaxed">{active.description}</p>
               {active.details && active.details.length > 0 && (
@@ -162,15 +153,7 @@ export function ProjectList({ projects }: { projects: Project[] }) {
               {active.links && (
                 <div className="flex gap-3 text-sm">
                   {active.links.map((l) => (
-                    
-                      key={l.label}
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline"
-                    >
-                      {l.label}
-                    </a>
+                    <ExternalLink key={l.label} href={l.href}>{l.label}</ExternalLink>
                   ))}
                 </div>
               )}
