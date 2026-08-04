@@ -27,7 +27,7 @@ const projects: Project[] = [
   },
     {
     title: 'Up',
-    image: '/project1.jpg',  
+    image: '/Up2025.jpg',  
     description: 'Supersonic competition rocket for Launch Canada 2025',
     tech: ['Solidworks', 'OpenRocket', 'Excel', 'Documentation and Reporting'],
     links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
