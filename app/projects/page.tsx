@@ -53,7 +53,7 @@ const projects: Project[] = [
   },
       {
     title: 'Golf Putters',
-    image: '/putterhead.jpg',  
+    image: '/putterhead.png',  
     description: 'Designing custom putter heads',
     tech: ['Fusion 360'],
     links: [{ label: 'This could be you with this putter', href: 'https://www.youtube.com/watch?v=u9KrMQDU94g' }],
