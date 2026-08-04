@@ -10,9 +10,9 @@ const projects: Project[] = [
     tech: ['Inventor', 'OpenRocket', 'Python', 'Documentation and Reporting'],
     links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
     details: [
-      { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
+      { type: 'text', content: `Contributed to the USST's 2026 competition rocket Theseus. As an aerostructure team lead, I helped design a set of removable carbon fiber fins and aluminum mounting brackets for them.
         
-        The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team also won the Spirit Bear Award for exemplifying the spirit of teamwork.` },
+        The rocket will fly soon!` },
     ],
   },
     {
@@ -20,11 +20,9 @@ const projects: Project[] = [
     image: '/project1.jpg',  
     description: 'ME-229 Engineering Design Project',
     tech: ['Inventor', 'Documentation and Reporting'],
-    links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
+    links: [{ label: 'Presentation video', href: 'https://www.youtube.com/watch?v=Kg3sbk-dOGU' }],
     details: [
-      { type: 'text', content: `Contributed to the USST's 2025 competition rocket UP. As a member of the aerostructure team, I helped design a set of removable aluminum fins and mounting rings that successfully kept the rocket stable on ascent.
-        
-        The rocket reached a maximum velocity Mach 1.2, and an apogee over 16,000ft, with the team placing 8th out of 17 competing teams. Our team also won the Spirit Bear Award for exemplifying the spirit of teamwork.` },
+      { type: 'text', content: `Class project, see video for more.` },
     ],
   },
     {
