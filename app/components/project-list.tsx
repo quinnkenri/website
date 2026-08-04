@@ -141,7 +141,7 @@ export function ProjectList({ projects }: { projects: Project[] }) {
             </div>
             <div className="overflow-y-auto px-6 py-5 space-y-4">
               {active.image && (
-                <img src={active.image} alt={active.title} className="w-full rounded-lg object-cover max-h-64" />
+<img src={active.image} alt={active.title} className="w-full rounded-lg object-contain" />
               )}
               <p className="text-sm leading-relaxed">{active.description}</p>
               {active.details && active.details.length > 0 && (
