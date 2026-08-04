@@ -17,7 +17,7 @@ const projects: Project[] = [
   },
     {
     title: 'Wind-Powered Sail Cart',
-    image: '/project1.jpg',  
+    image: '/cart.jpg',  
     description: 'ME-229 Engineering Design Project',
     tech: ['Inventor', 'Documentation and Reporting'],
     links: [{ label: 'Presentation video', href: 'https://www.youtube.com/watch?v=Kg3sbk-dOGU' }],
