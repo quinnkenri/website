@@ -31,8 +31,7 @@ export default function Page() {
 
         {/* Featured projects */}
         <div className="mt-16">
-          <ProjectList projects={projects.slice(0, 2)} />
-        </div>
+<ProjectList projects={projects.filter(p => p.title === 'Theseus' || p.title === 'Up')} />        </div>
 
         {/* See more button */}
         <div className="mt-8 flex justify-center">
