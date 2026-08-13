@@ -1,6 +1,6 @@
-import { ProjectList, type Project } from 'app/components/project-list'
+import { type Project } from 'app/components/project-list'
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     title: 'Theseus',
     image: '/project1.jpg',  
