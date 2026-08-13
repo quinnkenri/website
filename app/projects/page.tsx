@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 import { ProjectList } from 'app/components/project-list'
 import { projects } from 'app/lib/projects'
 
