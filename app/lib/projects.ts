@@ -3,14 +3,14 @@ import { type Project } from 'app/components/project-list'
 export const projects: Project[] = [
   {
     title: 'Theseus',
-    image: '/project1.jpg',  
+    image: '/theseus.png',  
     description: 'Supersonic competition rocket for Launch Canada 2026',
-    tech: ['Inventor', 'OpenRocket', 'Python', 'Documentation and Reporting'],
-    links: [{ label: 'USST', href: 'https://www.usst.ca/projects/rocket-iii' }],
+    tech: ['Inventor', 'Solidworks', 'OnShape', 'OpenRocket', 'Python', 'Documentation and Reporting'],
+    links: [{ label: 'Onboard launch footage', href: 'https://www.youtube.com/watch?v=F4unTtXVsKU' }],
     details: [
       { type: 'text', content: `Contributed to the USST's 2026 competition rocket Theseus. As an aerostructure team lead, I helped design a set of removable carbon fiber fins and aluminum mounting brackets for them.
         
-        The rocket will fly soon!` },
+        The flight was a success and the team placed 3rd overall. All thanks to the great USST Rocketry team!` },
     ],
   },
     {
