@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     title: 'Theseus',
     image: '/theseus.png',  
-    description: 'Supersonic competition rocket for Launch Canada 2026',
+    description: 'Supersonic competition rocket for Launch Canada 2026 - 3rd place',
     tech: ['Inventor', 'Solidworks', 'OnShape', 'OpenRocket', 'Python', 'Documentation and Reporting'],
     links: [{ label: 'Onboard launch footage', href: 'https://www.youtube.com/watch?v=F4unTtXVsKU' }],
     details: [
